@@ -56,11 +56,11 @@ jobs:
             console.log("add_labels: " + add_labels)
             
             // Removes the labels that should not be there anymore
-            github.rest.issues.addLabels({
+            github.rest.issues.removeLabels({
               issue_number: pr_number,
               owner: owner,
               repo: repo,
-              labels: ["approved-dev"]
+              labels: remove_labels
             })
             
             // Adds the needed labels
@@ -68,5 +68,5 @@ jobs:
               issue_number: pr_number,
               owner: owner,
               repo: repo,
-              labels: ["approved-dev"]
+              labels: add_labels
             })
