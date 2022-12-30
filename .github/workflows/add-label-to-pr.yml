@@ -31,6 +31,12 @@ jobs:
             const jira_user = context.payload.client_payload.jira_user
             console.log("jira_user: " + jira_user)
             
+            // Gets the JIRA statuses 
+            const jira_from_status = context.payload.client_payload.jira_from_status
+            const jira_to_status = context.payload.client_payload.jira_to_status
+            console.log("jira_from_status: " + jira_from_status)
+            console.log("jira_to_status: " + jira_to_status)
+
             var remove_labels = []
             var add_labels = []
             
