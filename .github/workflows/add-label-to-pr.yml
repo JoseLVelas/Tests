@@ -12,8 +12,8 @@ jobs:
           script: |
             console.log(context)            
             // this gets the number at the end of the content URL, which should be the issue/PR number
-            const pr_link = context.payload.pr_link.split('/').pop()
-            const jira_id = context.payload.jira_id
+            const pr_link = context.payload.client_payload.pr_link.split('/').pop()
+            const jira_id = context.payload.client_payload.jira_id
             //console.log(context)
             console.log("pr_link: " + pr_link)
             console.log("jira_id: " + jira_id)
