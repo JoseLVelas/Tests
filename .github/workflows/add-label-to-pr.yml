@@ -10,11 +10,13 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            console.log(context)            
-            const owner = "JoseLVelas"
-            const repo = "Tests"
+            //console.log(context)            
+            //const owner = "JoseLVelas"
+            //const repo = "Tests"
+            const owner = "trilogy-group"
+            const repo = "pulse-ui"
             
-            // this gets the number at the end of the content URL, which should be the issue/PR number
+            // this gets the number at the end of the content URL, which should be the issue or PR number
             const pr_number = context.payload.client_payload.pr_link.split('/').pop()
             const jira_id = context.payload.client_payload.jira_id
             //console.log(context)
