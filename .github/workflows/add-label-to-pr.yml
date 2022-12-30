@@ -18,7 +18,7 @@ jobs:
             //const repo = "pulse-ui"
             
             // this gets the number at the end of the content URL, which should be the issue or PR number
-            console.log("pr_link: " + pr_link)
+            console.log("context.payload.client_payload.pr_link: " + context.payload.client_payload.pr_link)
             const pr_link_items = context.payload.client_payload.pr_link.split('/')
             console.log("pr_link_items: " + pr_link_items)
             const pr_number = pr_link_items[-1]
