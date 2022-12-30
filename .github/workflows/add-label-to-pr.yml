@@ -1,7 +1,7 @@
 name: Add Label to PR
 on: repository_dispatch
 jobs:
-  remove_label:
+  add_label_to_pr:
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -11,9 +11,19 @@ jobs:
         with:
           script: |
             console.log(context)            
+            const owner = "JoseLVelas"
+            const repo = "Tests"
+            
             // this gets the number at the end of the content URL, which should be the issue/PR number
-            const pr_link = context.payload.client_payload.pr_link.split('/').pop()
+            const pr_number = context.payload.client_payload.pr_link.split('/').pop()
             const jira_id = context.payload.client_payload.jira_id
             //console.log(context)
-            console.log("pr_link: " + pr_link)
+            console.log("pr_number: " + pr_number)
             console.log("jira_id: " + jira_id)
+            
+            github.rest.issues.addLabels({
+              issue_number: pr_number,
+              owner: owner,
+              repo: repo,
+              labels: ["triage"]
+            })
