@@ -59,7 +59,7 @@ jobs:
             
             remove_labels.forEach(function(label_to_remove) {
                 try {
-                    console.log("entering try block");
+                    console.log("entering try block REMOVE - " + label_to_remove);
                     github.rest.issues.removeLabel({
                         issue_number: pr_number,
                         owner: owner,
@@ -69,14 +69,14 @@ jobs:
                 }
                 catch (e) {
                   console.log("Could not remove label `" + label_to_remove + "`");
-                  console.log(e);
+                  //console.log(e);
                 }
             })
             
             // Adds the needed labels
             add_labels.forEach(function(label_to_add) {
                 try {
-                    console.log("entering try block");
+                    console.log("entering try block ADD - " + label_to_add);
                     github.rest.issues.addLabels({
                         issue_number: pr_number,
                         owner: owner,
@@ -86,6 +86,6 @@ jobs:
                 }
                 catch (e) {
                   console.log("Could not add label `" + label_to_remove + "`");
-                  console.log(e);
+                  //console.log(e);
                 }
             })
