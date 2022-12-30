@@ -1,7 +1,7 @@
 name: Update Labels in PR
 on: repository_dispatch
 jobs:
-  add_label_to_pr:
+  update_labels_in_pr:
     runs-on: ubuntu-latest
     permissions:
       issues: write
