@@ -80,7 +80,14 @@ jobs:
             })*/
             
             // Adds the needed labels
-            add_labels.forEach(async function(label_to_add) {
+            github.rest.issues.addLabels({
+                issue_number: pr_number,
+                owner: owner,
+                repo: repo,
+                labels: add_labels
+            })
+
+            /*add_labels.forEach(async function(label_to_add) {
                 try {
                     console.log("entering try block ADD - " + label_to_add);
                     await github.rest.issues.addLabels({
@@ -93,7 +100,7 @@ jobs:
                   console.log("Could not add label `" + label_to_remove + "`");
                   //console.log(e);
                 }
-            })
+            })*/
             
             
             /*github.rest.issues.createComment({
