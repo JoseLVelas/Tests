@@ -98,7 +98,8 @@ jobs:
             + "` moved issue `" + jira_id 
             + "` from `" + jira_from_status
             + "` to `" + jira_to_status
-            + "`"
+            + "`" + "\n"
+            + "(this is an automated message)"
             
             // Adds a comment explaining why the labels were added
             github.rest.issues.createComment({
