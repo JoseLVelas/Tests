@@ -58,7 +58,7 @@ jobs:
             
             // Removes the labels that should not be there anymore
             
-            remove_labels.forEach(function(label_to_remove) {
+            /*remove_labels.forEach(function(label_to_remove) {
                 try {
                     console.log("entering try block REMOVE - " + label_to_remove);
                     github.rest.issues.removeLabel({
@@ -71,7 +71,7 @@ jobs:
                   console.log("Could not remove label `" + label_to_remove + "`");
                   //console.log(e);
                 }
-            })
+            })*/
             
             // Adds the needed labels
             add_labels.forEach(async function(label_to_add) {
