@@ -61,7 +61,7 @@ jobs:
             remove_labels.forEach(function(label_to_remove) {
                 try {
                     console.log("entering try block REMOVE - " + label_to_remove);
-                    github.rest.issues.removeLabel({
+                    await github.rest.issues.removeLabel({
                         issue_number: pr_number,
                         owner: owner,
                         repo: repo,
