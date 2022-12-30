@@ -1,4 +1,4 @@
-name: Add Label to PR
+name: Update Labels in PR
 on: repository_dispatch
 jobs:
   add_label_to_pr:
