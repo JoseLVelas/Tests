@@ -58,10 +58,10 @@ jobs:
             
             // Removes the labels that should not be there anymore
             
-            remove_labels.forEach(async function(label_to_remove) {
+            remove_labels.forEach(function(label_to_remove) {
                 try {
                     console.log("entering try block REMOVE - " + label_to_remove);
-                    await github.rest.issues.removeLabel({
+                    github.rest.issues.removeLabel({
                         issue_number: pr_number,
                         owner: owner,
                         repo: repo,
