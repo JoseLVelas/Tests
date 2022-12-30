@@ -40,7 +40,6 @@ jobs:
             var remove_labels = []
             var add_labels = []
             
-            
             // Defines the labels arrays to be added and removed, according to the JIRA issue status
             if (jira_to_status.localeCompare("In Development", "en", {sensitivity: "base"}) == 0) {
                 remove_labels = ["approved-dev", "approved-qa", "approved-regression"]
@@ -55,18 +54,19 @@ jobs:
             
             console.log("remove_labels: " + remove_labels)
             console.log("add_labels: " + add_labels)
+            
             // Removes the labels that should not be there anymore
-            //github.rest.issues.addLabels({
-            //  issue_number: pr_number,
-            //  owner: owner,
-            //  repo: repo,
-            //  labels: ["approved-dev"]
-            //})
+            github.rest.issues.addLabels({
+              issue_number: pr_number,
+              owner: owner,
+              repo: repo,
+              labels: ["approved-dev"]
+            })
             
             // Adds the needed labels
-            //github.rest.issues.addLabels({
-            //  issue_number: pr_number,
-            //  owner: owner,
-            //  repo: repo,
-            //  labels: ["approved-dev"]
-            //})
+            github.rest.issues.addLabels({
+              issue_number: pr_number,
+              owner: owner,
+              repo: repo,
+              labels: ["approved-dev"]
+            })
