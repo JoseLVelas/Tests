@@ -1,0 +1,16 @@
+name: Add Label to PR
+on:
+  project_card:
+    types:
+      - moved
+jobs:
+  remove_label:
+    if: github.event.project_card.column_id == '12345678'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: console.log(context)
