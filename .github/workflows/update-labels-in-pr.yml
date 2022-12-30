@@ -57,16 +57,12 @@ jobs:
             console.log("add_labels: " + add_labels)
             
             // Removes the labels that should not be there anymore
-            //remove_labels.forEach(function(label_to_remove) {                
-                //console.log("entering try block REMOVE - " + label_to_remove);
-                github.rest.issues.removeLabel({
-                    issue_number: pr_number,
-                    owner: owner,
-                    repo: repo,
-                    name: remove_labels
-                })
-            //
-            //})
+            github.rest.issues.removeLabel({
+                issue_number: pr_number,
+                owner: owner,
+                repo: repo,
+                name: remove_labels
+            })
             
             /*remove_labels.forEach(function(label_to_remove) {
                 try {
