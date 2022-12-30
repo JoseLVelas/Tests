@@ -25,13 +25,20 @@ jobs:
             const issue_type = pr_link_items.pop()
             const repo = pr_link_items.pop()
             const owner = pr_link_items.pop()
-            const jira_id = context.payload.client_payload.jira_id
             //console.log(context)
             console.log("pr_number: " + pr_number)
             console.log("issue_type: " + issue_type)
             console.log("repo: " + repo)
             console.log("owner: " + owner)
+            
+            
+            const jira_id = context.payload.client_payload.jira_id
             console.log("jira_id: " + jira_id)
+            
+            
+            const jira_user = context.payload.client_payload.jira_user
+            console.log("jira_user: " + jira_user)
+            
             
             //github.rest.issues.addLabels({
             //  issue_number: pr_number,
