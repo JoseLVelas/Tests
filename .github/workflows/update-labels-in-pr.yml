@@ -10,6 +10,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.TRILOGY_PERSONAL_TOKEN }}
+          retries: 3
           script: |
             // Splits the PR link into different stubs that correspond to different information about the PR
             var pr_link_items = context.payload.client_payload.pr_link.split('/')
@@ -66,8 +67,7 @@ jobs:
                         repo: repo,
                         labels: label_to_remove
                     })
-                }
-                catch (e) {
+                } catch (e) {
                   console.log("Could not remove label `" + label_to_remove + "`");
                   //console.log(e);
                 }
@@ -83,9 +83,16 @@ jobs:
                         repo: repo,
                         labels: label_to_add
                     })
-                }
-                catch (e) {
+                } catch (e) {
                   console.log("Could not add label `" + label_to_remove + "`");
                   //console.log(e);
                 }
             })
+            
+            
+            /*github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })*/
