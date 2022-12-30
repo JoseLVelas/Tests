@@ -57,13 +57,6 @@ jobs:
             console.log("add_labels: " + add_labels)
             
             // Removes the labels that should not be there anymore
-            /*github.rest.issues.removeLabel({
-                issue_number: pr_number,
-                owner: owner,
-                repo: repo,
-                name: remove_labels
-            })*/
-            
             remove_labels.forEach(async function(label_to_remove) {
                 try {
                     console.log("entering try block REMOVE - " + label_to_remove);
@@ -80,13 +73,6 @@ jobs:
             })
             
             // Adds the needed labels
-            /*github.rest.issues.addLabels({
-                issue_number: pr_number,
-                owner: owner,
-                repo: repo,
-                labels: add_labels
-            })*/
-
             add_labels.forEach(async function(label_to_add) {
                 try {
                     console.log("entering try block ADD - " + label_to_add);
@@ -102,10 +88,15 @@ jobs:
                 }
             })
             
+            const commentBody = "👋 " + jira_user 
+            + " moved issue " + jira_id 
+            + " from " + jira_from_status
+            + " to " + jira_to_status
             
+            // Adds a comment explaining why the labels were added
             /*github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
+                issue_number: pr_number,
+                owner: owner,
+                repo: repo,
+                body: commentBody
             })*/
