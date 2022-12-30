@@ -99,7 +99,7 @@ jobs:
             + "` from `" + jira_from_status
             + "` to `" + jira_to_status
             + "`" + "\n"
-            + "(this is an automated message)"
+            + "\t _(this is an automated message)_"
             
             // Adds a comment explaining why the labels were added
             github.rest.issues.createComment({
