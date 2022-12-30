@@ -42,7 +42,13 @@ jobs:
             var add_labels = []
             
             // Defines the labels arrays to be added and removed, according to the JIRA issue status
-            if (jira_to_status.localeCompare("In Development", "en", {sensitivity: "base"}) == 0) {
+            if (jira_to_status.localeCompare("Written", "en", {sensitivity: "base"}) == 0) {
+                remove_labels = ["approved-dev", "approved-qa", "approved-regression"]
+                add_labels = []
+            } else if (jira_to_status.localeCompare("Groomed", "en", {sensitivity: "base"}) == 0) {
+                remove_labels = ["approved-dev", "approved-qa", "approved-regression"]
+                add_labels = []
+            } else if (jira_to_status.localeCompare("In Development", "en", {sensitivity: "base"}) == 0) {
                 remove_labels = ["approved-dev", "approved-qa", "approved-regression"]
                 add_labels = []
             } else if (jira_to_status.localeCompare("In QA", "en", {sensitivity: "base"}) == 0) {
