@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: actions/github-script@v6
         with:
+          github-token: ${{ secrets.TRILOGY_PERSONAL_TOKEN }}
           script: |
             //console.log(context)            
             //const owner = "JoseLVelas"
