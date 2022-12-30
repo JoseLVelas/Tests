@@ -1,8 +1,5 @@
 name: Add Label to PR
-on:
-  project_card:
-    types:
-      - moved
+on: repository_dispatch
 jobs:
   remove_label:
     if: github.event.project_card.column_id == '12345678'
